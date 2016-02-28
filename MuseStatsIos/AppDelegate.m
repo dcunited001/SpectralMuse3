@@ -79,13 +79,13 @@
     }
     [self.musePickerTimer invalidate];
     self.musePickerTimer = nil;
-    [self.muse registerDataListener:self.loggingListener
+    [self.muse registerDataListener:self.museListener
                                type:IXNMuseDataPacketTypeArtifacts];
-    [self.muse registerDataListener:self.loggingListener
+    [self.muse registerDataListener:self.museListener
                                type:IXNMuseDataPacketTypeBattery];
-    [self.muse registerDataListener:self.loggingListener
+    [self.muse registerDataListener:self.museListener
                                type:IXNMuseDataPacketTypeAccelerometer];
-    [self.muse registerConnectionListener:self.loggingListener];
+    [self.muse registerConnectionListener:self.museListener];
     [self.muse runAsynchronously];
 }
 

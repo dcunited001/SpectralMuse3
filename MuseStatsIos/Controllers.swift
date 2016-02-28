@@ -15,11 +15,14 @@ import UIKit
 enum Visualizations: String {
     case Colors = "colors"
     
-    func registerListeners(muse: IXNMuse) {
+    // can't work with the app delegate's
+    func registerListeners(appDelegate: AppDelegate, muse: IXNMuse) {
         switch self {
-        case .Colors:
-            muse.register
+        case .Colors: break
+//            muse.register
+        default: break;
         }
+        
     }
 }
 
@@ -37,10 +40,6 @@ class MenuController: UITableViewController {
             print("muse is nil")
         } else {
             muse = appDelegate.muse
-        }
-        
-        if appDelegate.loggingListener == nil {
-            
         }
         
         
