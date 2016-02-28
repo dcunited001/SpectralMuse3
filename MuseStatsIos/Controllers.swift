@@ -15,8 +15,8 @@ class MuseView: MetalView {
     //    var plane = MDLMesh.newPlaneWithDimensions(vector_float2(100.0,100.0), segments: vector_uint2(11,11), geometryType: .Triangles) // allocator?
     var bufferAllocator: MTKMeshBufferAllocator?
     
-    var ellipsoid = MDLMesh.newEllipsoidWithRadii([50.0, 30.0, 75.0], radialSegments: 30, verticalSegments: 20, geometryType: .TypeTriangles, inwardNormals: true, hemisphere: false, allocator: nil)  // allocator?
-    var icosohedron = MDLMesh.newIcosahedronWithRadius(100.0, inwardNormals: true, allocator: nil) // allocator?
+    var ellipsoid: MDLMesh?
+    var icosohedron: MDLMesh?
     
     var meshVertexCount = 0
     var meshVertexSize = 0
@@ -33,12 +33,13 @@ class MuseView: MetalView {
     override init(frame frameRect: CGRect, device: MTLDevice?) {
         super.init(frame: frameRect, device: device)
         
-        bufferAllocator = MTKMeshBufferAllocator(device)
+        setupVertexDescriptors()
+        setupObjects()
         
         renderBlock = {(encoder:MTLRenderCommandEncoder) in
             // TODO: setVertexBuffer
-            encoder.setVertexBuffer(meshVertexBuffer, offset: 0, atIndex: 0)
-            encoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: icosohedron.vertexCount, instanceCount: 1)
+            encoder.setVertexBuffer(self.meshVertexBuffer, offset: 0, atIndex: 0)
+            encoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: self.icosohedron!.vertexCount, instanceCount: 1)
         }
     }
 
@@ -48,15 +49,34 @@ class MuseView: MetalView {
     
     private func calcMeshVertex(meshes: [MDLMesh], vertexDescriptor: MDLVertexDescriptor) {
         // TODO: vertex descriptor size?
-        vertexCount = meshes.reduce(0) { return $0 + $1.vertexCount }
-        
+        meshVertexCount = meshes.reduce(0) { return $0 + $1.vertexCount }
     }
+    
+    private func setupObjects() {
+        bufferAllocator = MTKMeshBufferAllocator(device: device!)
+        ellipsoid = MDLMesh.newEllipsoidWithRadii([50.0, 30.0, 75.0], radialSegments: 30, verticalSegments: 20, geometryType: .TypeTriangles, inwardNormals: true, hemisphere: false, allocator: nil)  // allocator?
+        icosohedron = MDLMesh.newIcosahedronWithRadius(100.0, inwardNormals: true, allocator: nil) // allocator?
+    }
+    
     private func setupVertexDescriptors() {
-        vertDescMDL = [
-            MDLVertexAttribute(name: "pos", format: .Float4, offset: 0, bufferIndex: 0),
-            MDLVertexAttribute(name: "rgb", format: .Float4, offset: 0, bufferIndex: 1),
-        ]
-        vertDescMDL.addOrReplaceAttribute()
+        let attrPos = MDLVertexAttribute(name: MDLVertexAttributePosition, format: .Float4, offset: 0, bufferIndex: 0)
+        let attrRGB = MDLVertexAttribute(name: MDLVertexAttributeColor, format: .Float4, offset: 0, bufferIndex: 1)
+        vertDescMDL = MDLVertexDescriptor()
+        vertDescMDL.addOrReplaceAttribute(attrPos)
+        vertDescMDL.addOrReplaceAttribute(attrRGB)
+        
+        let attrPosMTL = MTLVertexAttributeDescriptor()
+        attrPosMTL.format = .Float4
+        attrPosMTL.offset = 0
+        attrPosMTL.bufferIndex = 0
+        let attrRGBMTL = MTLVertexAttributeDescriptor()
+        attrRGBMTL.format = .Float4
+        attrRGBMTL.offset = 0
+        attrRGBMTL.bufferIndex = 1
+        
+        vertDescMTL = MTLVertexDescriptor()
+        vertDescMTL.attributes[0] = attrPosMTL
+        vertDescMTL.attributes[1] = attrRGBMTL
     }
     
     private func encodeMeshVertices(meshes: [MDLMesh]) {
