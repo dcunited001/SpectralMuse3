@@ -29,40 +29,42 @@ enum Visualization: String {
 class MenuController: UITableViewController {
     
     weak var muse: IXNMuse?
+    weak var appDelegate: AppDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // obtains a reference to muse & 
+        setAppDelegateAndMuse()
+    }
+    
+    private func setAppDelegateAndMuse() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        // obtains a reference to appdelegate & muse
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        if appDelegate.muse == nil {
+        if appDelegate!.muse == nil {
             print("muse is nil")
         } else {
-
+            muse = appDelegate!.muse
         }
         
-
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        muse?.unregisterAllListeners()
+        setAppDelegateAndMuse()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
-        
-        let appDelegate = getAppDelegate()
-        
-        if let segueName = segue.identifier {
-            switch segue.identifier! {
-//            case "showColors": Visualization.Colors.registerListeners(appDelegate, muse: appDelegate.muse); break
-            case "showCube": print("show cube"); break
-            default: break
-            }
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        super.prepareForSegue(segue, sender: sender)
+//        
+//        if let segueName = segue.identifier {
+//            switch segue.identifier! {
+////            case "showColors": Visualization.Colors.registerListeners(appDelegate, muse: appDelegate.muse); break
+//            case "showCube": print("show cube"); break
+//            default: break
+//            }
+//        }
+//    }
     
     private func getAppDelegate() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
@@ -70,13 +72,18 @@ class MenuController: UITableViewController {
     
 }
 
-class MuseController: UIViewController {
+class MuseController: UIViewController, MuseListenerCtrlDelegate {
     
-    var museListener: MuseListener!
+    weak var muse: IXNMuse?
+    weak var appDelegate: AppDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
