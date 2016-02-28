@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MuseStatsIos/AppDelegate.h"
-            timestampString = "478353554.124839"
+            timestampString = "478357015.213178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "@interface AppDelegate"
             landmarkType = "2">
          </BreakpointContent>
@@ -68,33 +68,80 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MuseStatsIos.Visualization.init (MuseStatsIos.Visualization.Type)(rawValue : Swift.String) -&gt; Swift.Optional&lt;MuseStatsIos.Visualization&gt;"
+                  symbolName = "MuseStatsIos.MuseController.__deallocating_deinit"
                   moduleName = "MuseStatsIos"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dc/dev/apple/MLH/MuseStat/MuseStatsIos/Controllers.swift"
-                  timestampString = "478353574.837863"
+                  timestampString = "478357809.826403"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "44">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MuseStatsIos.Visualization.rawValue.getter : Swift.String"
+                  symbolName = "MuseStatsIos.MuseController.init (MuseStatsIos.MuseController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; MuseStatsIos.MuseController"
                   moduleName = "MuseStatsIos"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dc/dev/apple/MLH/MuseStat/MuseStatsIos/Controllers.swift"
-                  timestampString = "478353574.838103"
+                  timestampString = "478357809.82667"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "8">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MuseStatsIos.MuseController.init (MuseStatsIos.MuseController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MuseStatsIos.MuseController&gt;"
+                  moduleName = "MuseStatsIos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dc/dev/apple/MLH/MuseStat/MuseStatsIos/Controllers.swift"
+                  timestampString = "478357809.826843"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseStatsIos/Renderers.swift"
+            timestampString = "478359086.427843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "BaseRenderer"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseStatsIos/Renderers.swift"
+            timestampString = "478360858.914892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "MetalRenderer"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

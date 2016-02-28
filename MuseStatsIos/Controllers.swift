@@ -7,79 +7,29 @@
 //
 import Foundation
 import UIKit
-
-// MuseController obtains reference to AppDelegate's muse via the muse manager
-// - in setup, muse controller registers handlers for events
-// - if muse controller goes offline or whatever, it unregisters all listeners
-
-enum Visualization: String {
-    case Colors = "colors"
-    
-    // can't work with the app delegate's ish directly ...
-//    func registerListeners(appDelegate: AppDelegate, muse: IXNMuse) {
-//        switch self {
-//        case .Colors: break
-////            muse.register
-//        default: break;
-//        }
-//        
-//    }
-}
-
-class MenuController: UITableViewController {
-    
-    weak var muse: IXNMuse?
-    weak var appDelegate: AppDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setAppDelegateAndMuse()
-    }
-    
-    private func setAppDelegateAndMuse() {
-        
-        // obtains a reference to appdelegate & muse
-        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        if appDelegate!.muse == nil {
-            print("muse is nil")
-        } else {
-            muse = appDelegate!.muse
-        }
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        setAppDelegateAndMuse()
-    }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        super.prepareForSegue(segue, sender: sender)
-//        
-//        if let segueName = segue.identifier {
-//            switch segue.identifier! {
-////            case "showColors": Visualization.Colors.registerListeners(appDelegate, muse: appDelegate.muse); break
-//            case "showCube": print("show cube"); break
-//            default: break
-//            }
-//        }
-//    }
-    
-    private func getAppDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
-    }
-    
-}
+import MetalKit
 
 class MuseController: UIViewController, MuseListenerCtrlDelegate {
     
+    var renderer: MuseRenderer!
+    var metalView: MetalView!
+    
     weak var muse: IXNMuse?
     weak var appDelegate: AppDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let rect = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        renderer = MuseRenderer()
+        metalView = TexturedQuadView(frame: rect, device: MTLCreateSystemDefaultDevice())
+        renderer.configure(metalView)
+        positionObjects()
+        metalView.metalViewDelegate = renderer
+        
+        self.view.addSubview(metalView)
+        metalView.hidden = true
+        // TODO: setupGestures()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -105,20 +55,14 @@ class MuseController: UIViewController, MuseListenerCtrlDelegate {
         } else {
             muse = appDelegate!.muse
         }
-
-        //Can't seem to call this method no matter what i do
-        // - no idea why something so fucking simple is so fucking complicated
-        // - and i really have no idea who to ask to fix this,
-        // - but i'm sure anyone with a year of objective-c experience could tell me
-        // - ... 
-        appDelegate!.setListenerCtrlDelegate(self)
+    }
+    
+    func positionObjects() {
+        // 
     }
 }
 
-class MetalController: MuseController {
+class MuseRenderer: BaseRenderer {
     
 }
 
-class ColorsController: MetalController {
-    
-}
