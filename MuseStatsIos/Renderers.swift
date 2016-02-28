@@ -2,23 +2,6 @@ import simd
 import Metal
 import ModelIO
 
-class MuseView: MetalView {
-    
-    // TODO: update to iOS 9.3
-    //    var plane = MDLMesh.newPlaneWithDimensions(vector_float2(100.0,100.0), segments: vector_uint2(11,11), geometryType: .Triangles) // allocator?
-    var ellipsoid = MDLMesh.newEllipsoidWithRadii([50.0, 30.0, 75.0], radialSegments: 30, verticalSegments: 20, geometryType: .TypeTriangles, inwardNormals: true, hemisphere: false, allocator: nil)  // allocator?
-    var icosohedron = MDLMesh.newIcosahedronWithRadius(100.0, inwardNormals: true, allocator: nil) // allocator?
-    
-    init(frame frameRect: CGRect, device: MTLDevice?) {
-        super.init(frame: frameRect, device: device)
-        
-        renderBlock = {(encoder) in
-            // pull mesh data from shapes, insert into buffers
-        }
-    }
-    
-}
-
 class MetalRenderer {
     
     var device: MTLDevice?
