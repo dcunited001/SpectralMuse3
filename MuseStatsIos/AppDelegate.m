@@ -10,9 +10,8 @@
 @interface AppDelegate ()
 
 @property (weak, nonatomic) IXNMuseManager *manager;
-@property (nonatomic) LoggingListener *loggingListener;
 @property (nonatomic) NSTimer *musePickerTimer;
-
+@property (nonatomic) LoggingListener *loggingListener;s
 @end
 
 @implementation AppDelegate

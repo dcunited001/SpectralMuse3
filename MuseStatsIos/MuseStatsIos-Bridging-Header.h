@@ -3,3 +3,4 @@
 //
 
 #import "Muse.h"
+#import "AppDelegate.h"
