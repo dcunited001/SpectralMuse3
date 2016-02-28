@@ -103,6 +103,10 @@
     [self.muse runAsynchronously];
 }
 
+- (void)setListenerCtrlDelegate:(id<MuseListenerCtrlDelegate> *)delegate {
+    [self.museListener setControllerDelegate: *delegate];
+}
+
 /*
  * Simple example of getting data from the "*.muse" file
  */

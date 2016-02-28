@@ -11,12 +11,18 @@ import Foundation
 @objc class MuseListener: NSObject, IXNMuseDataListener, IXNMuseConnectionListener {
     
     weak var delegate: AnyObject? // ?? lulz
+    var controllerDelegate: MuseListenerCtrlDelegate?
     
     init(delegate: AppDelegate) {
         self.delegate = delegate
     }
     
     func receiveMuseDataPacket(packet: IXNMuseDataPacket!) {
+        guard (controllerDelegate?.receivedMuseData == nil) else {
+            controllerDelegate?.receivedMuseData?(packet)
+            return
+        }
+        
         switch packet.packetType {
         case .Battery: print("yo. battery's low."); break
         case .Accelerometer: break
@@ -26,7 +32,10 @@ import Foundation
     }
     
     func receiveMuseArtifactPacket(packet: IXNMuseArtifactPacket!) {
-        guard packet.headbandOn else {
+        
+        guard packet.headbandOn else { return }
+        guard (controllerDelegate?.receivedMuseArtifact == nil) else {
+            controllerDelegate?.receivedMuseArtifact?(packet)
             return
         }
 
@@ -36,6 +45,11 @@ import Foundation
     }
     
     func receiveMuseConnectionPacket(packet: IXNMuseConnectionPacket!) {
+        guard (controllerDelegate?.receivedMuseConnection == nil) else {
+            controllerDelegate?.receivedMuseConnection?(packet)
+            return
+        }
+        
         //holy shitty fuck!
         var state: String = "who the fuck knows!"
         switch packet.currentConnectionState {
@@ -53,7 +67,10 @@ import Foundation
             self.delegate?.performSelector("reconnectToMuse", withObject: nil, afterDelay: 0)
         }
         
-        
+    }
+    
+    func setControllerDelegateFDSA(delegate: MuseListenerCtrlDelegate) {
+        self.controllerDelegate = delegate
     }
     
 }

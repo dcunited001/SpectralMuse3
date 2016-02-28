@@ -12,18 +12,18 @@ import UIKit
 // - in setup, muse controller registers handlers for events
 // - if muse controller goes offline or whatever, it unregisters all listeners
 
-enum Visualizations: String {
+enum Visualization: String {
     case Colors = "colors"
     
-    // can't work with the app delegate's
-    func registerListeners(appDelegate: AppDelegate, muse: IXNMuse) {
-        switch self {
-        case .Colors: break
-//            muse.register
-        default: break;
-        }
-        
-    }
+    // can't work with the app delegate's ish directly ...
+//    func registerListeners(appDelegate: AppDelegate, muse: IXNMuse) {
+//        switch self {
+//        case .Colors: break
+////            muse.register
+//        default: break;
+//        }
+//        
+//    }
 }
 
 class MenuController: UITableViewController {
@@ -39,11 +39,10 @@ class MenuController: UITableViewController {
         if appDelegate.muse == nil {
             print("muse is nil")
         } else {
-            muse = appDelegate.muse
+
         }
         
-        
-        muse?.unregisterAllListeners()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,13 +53,19 @@ class MenuController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         
+        let appDelegate = getAppDelegate()
+        
         if let segueName = segue.identifier {
             switch segue.identifier! {
-            case "showColors": print("show colors"); break
+//            case "showColors": Visualization.Colors.registerListeners(appDelegate, muse: appDelegate.muse); break
             case "showCube": print("show cube"); break
             default: break
             }
         }
+    }
+    
+    private func getAppDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
 }

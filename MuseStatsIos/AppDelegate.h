@@ -5,6 +5,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Muse.h"
+//#import "MuseStatsIos-Swift.h"
+
+@protocol MuseListenerCtrlDelegate
+@optional
+- (void)receivedMuseData:(IXNMuseDataPacket *)packet;
+- (void)receivedMuseArtifact:(IXNMuseArtifactPacket *)packet;
+- (void)receivedMuseConnection:(IXNMuseConnectionPacket *)pacsket;
+@end
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
