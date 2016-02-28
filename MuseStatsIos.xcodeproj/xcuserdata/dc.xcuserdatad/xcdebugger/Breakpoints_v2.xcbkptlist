@@ -104,13 +104,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MuseStatsIos/Controllers.swift"
-            timestampString = "478365339.136956"
+            timestampString = "478366664.713052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "setupVertexDescriptors()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MuseStatsIos/Shaders.metal"
+            timestampString = "478369200.358663"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "basic_vertex_out ( const device int* faceIndex [[ buffer(0) ]], const device float4* pos [[ buffer(1) ]], const device float4* rgb [[ buffer(2) ]], const device Projection&amp; projection [[ buffer(3) ]], unsigned int vid [[ vertex_id ]])"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

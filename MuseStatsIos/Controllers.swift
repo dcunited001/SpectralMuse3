@@ -10,7 +10,7 @@ import UIKit
 import MetalKit
 
 class MuseView: MetalView {
-    
+
     // TODO: update to iOS 9.3
     //    var plane = MDLMesh.newPlaneWithDimensions(vector_float2(100.0,100.0), segments: vector_uint2(11,11), geometryType: .Triangles) // allocator?
     var bufferAllocator: MTKMeshBufferAllocator?
@@ -54,8 +54,10 @@ class MuseView: MetalView {
     
     private func setupObjects() {
         bufferAllocator = MTKMeshBufferAllocator(device: device!)
-        ellipsoid = MDLMesh.newEllipsoidWithRadii([50.0, 30.0, 75.0], radialSegments: 30, verticalSegments: 20, geometryType: .TypeTriangles, inwardNormals: true, hemisphere: false, allocator: nil)  // allocator?
-        icosohedron = MDLMesh.newIcosahedronWithRadius(100.0, inwardNormals: true, allocator: nil) // allocator?
+        ellipsoid = MDLMesh.newEllipsoidWithRadii([50.0, 30.0, 75.0], radialSegments: 30, verticalSegments: 20, geometryType: .TypeTriangles, inwardNormals: true, hemisphere: false, allocator: bufferAllocator)
+        icosohedron = MDLMesh.newIcosahedronWithRadius(100.0, inwardNormals: true, allocator: bufferAllocator)
+        let icosohedronVertexBuffer = icosohedron?.vertexBuffers.first
+        let ellipsoidVertexBuffer = ellipsoid?.vertexBuffers.first
     }
     
     private func setupVertexDescriptors() {
