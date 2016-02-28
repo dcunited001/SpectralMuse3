@@ -15,6 +15,8 @@
 		4307090D1C82FE520099AD80 /* MuseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4307090C1C82FE520099AD80 /* MuseListener.swift */; };
 		430709121C8327DE0099AD80 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430709111C8327DE0099AD80 /* MetalView.swift */; };
 		430709141C832B8A0099AD80 /* GFX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430709131C832B8A0099AD80 /* GFX.swift */; };
+		430709161C833DFC0099AD80 /* BasicTriangle.metal in Sources */ = {isa = PBXBuildFile; fileRef = 430709151C833DFC0099AD80 /* BasicTriangle.metal */; };
+		430709181C833E260099AD80 /* TexturedQuad.metal in Sources */ = {isa = PBXBuildFile; fileRef = 430709171C833E260099AD80 /* TexturedQuad.metal */; };
 		5401E01E1A93DA2600FADC22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401E01D1A93DA2600FADC22 /* main.m */; };
 		5401E0211A93DA2600FADC22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401E0201A93DA2600FADC22 /* AppDelegate.m */; };
 		5401E0271A93DA2600FADC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401E0251A93DA2600FADC22 /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		4307090C1C82FE520099AD80 /* MuseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseListener.swift; sourceTree = "<group>"; };
 		430709111C8327DE0099AD80 /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		430709131C832B8A0099AD80 /* GFX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFX.swift; sourceTree = "<group>"; };
+		430709151C833DFC0099AD80 /* BasicTriangle.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = BasicTriangle.metal; sourceTree = "<group>"; };
+		430709171C833E260099AD80 /* TexturedQuad.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = TexturedQuad.metal; sourceTree = "<group>"; };
 		5401E0181A93DA2600FADC22 /* MuseStatsIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuseStatsIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401E01C1A93DA2600FADC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5401E01D1A93DA2600FADC22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				430708FD1C82F8CC0099AD80 /* MuseStatsIos-Bridging-Header.h */,
 				430709111C8327DE0099AD80 /* MetalView.swift */,
 				430709131C832B8A0099AD80 /* GFX.swift */,
+				430709151C833DFC0099AD80 /* BasicTriangle.metal */,
+				430709171C833E260099AD80 /* TexturedQuad.metal */,
 			);
 			path = MuseStatsIos;
 			sourceTree = "<group>";
@@ -269,6 +275,8 @@
 				430709121C8327DE0099AD80 /* MetalView.swift in Sources */,
 				430709051C82FDC50099AD80 /* Renderers.swift in Sources */,
 				5401E0211A93DA2600FADC22 /* AppDelegate.m in Sources */,
+				430709181C833E260099AD80 /* TexturedQuad.metal in Sources */,
+				430709161C833DFC0099AD80 /* BasicTriangle.metal in Sources */,
 				4307090D1C82FE520099AD80 /* MuseListener.swift in Sources */,
 				430708FF1C82F8CC0099AD80 /* Controllers.swift in Sources */,
 				5401E01E1A93DA2600FADC22 /* main.m in Sources */,

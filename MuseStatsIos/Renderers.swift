@@ -58,7 +58,7 @@ class BaseRenderer: MetalRenderer, MetalViewDelegate {
     var vertexShaderName = "basic_triangle_vertex"
     var fragmentShaderName = "basic_triangle_fragment"
     
-    var projectionMatrix:matrix_float4x4
+    var projectionMatrix:matrix_float4x4?
     var projectionBuffer:MTLBuffer?
     var projectionBufferId:Int = 1
     var projectionPointer: UnsafeMutablePointer<Void>?
@@ -146,11 +146,10 @@ class BaseRenderer: MetalRenderer, MetalViewDelegate {
         
         // yeh, it'd make sense if the renderer returned control to the caller to encode objects
         // - but it's difficult to structure that with all the inheritance
-        encoding?(renderEncoder)
-        
+
         encodeVertexBuffers(renderEncoder)
         encodeFragmentBuffers(renderEncoder)
-        encodeDraw(renderEncoder)
+        encoding?(renderEncoder)
         renderEncoder.endEncoding()
         renderEncoder.popDebugGroup()
     }
@@ -182,11 +181,6 @@ class BaseRenderer: MetalRenderer, MetalViewDelegate {
     
     func encodeFragmentBuffers(renderEncoder: MTLRenderCommandEncoder) {
         
-    }
-    
-    func encodeDraw(renderEncoder: MTLRenderCommandEncoder) {
-        let vertexCount = 363
-        renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: vertexCount, instanceCount: 1)
     }
 }
 
