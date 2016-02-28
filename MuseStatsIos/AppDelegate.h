@@ -21,6 +21,7 @@
 
 - (void)sayHi;
 - (void)reconnectToMuse;
+- (void)setListenerCtrlDelegate:(id<MuseListenerCtrlDelegate> *)delegate;
 
 @end
 

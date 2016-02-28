@@ -104,7 +104,7 @@
 }
 
 - (void)setListenerCtrlDelegate:(id<MuseListenerCtrlDelegate> *)delegate {
-    [self.museListener setControllerDelegate: *delegate];
+    self.museListener.controllerDelegate = *delegate;
 }
 
 /*

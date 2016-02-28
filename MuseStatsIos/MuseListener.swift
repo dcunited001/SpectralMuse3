@@ -69,8 +69,4 @@ import Foundation
         
     }
     
-    func setControllerDelegateFDSA(delegate: MuseListenerCtrlDelegate) {
-        self.controllerDelegate = delegate
-    }
-    
 }

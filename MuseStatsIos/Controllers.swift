@@ -83,6 +83,29 @@ class MuseController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    private func getAppDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+    
+    private func setAppDelegateAndMuse() {
+        
+        // obtains a reference to appdelegate & muse
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if appDelegate!.muse == nil {
+            print("muse is nil")
+        } else {
+            muse = appDelegate!.muse
+        }
+
+        //Can't seem to call this method no matter what i do
+        // - no idea why something so fucking simple is so fucking complicated
+        // - and i really have no idea who to ask to fix this,
+        // - but i'm sure anyone with a year of objective-c experience could tell me
+        // - ... 
+        appDelegate!.setListenerCtrlDelegate(self)
+    }
 }
 
 class MetalController: MuseController {
