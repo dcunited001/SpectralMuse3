@@ -12,6 +12,10 @@ import Foundation
     
     weak var delegate: AnyObject? // ?? lulz
     
+    init(delegate: AppDelegate) {
+        self.delegate = delegate
+    }
+    
     func receiveMuseDataPacket(packet: IXNMuseDataPacket!) {
         switch packet.packetType {
         case .Battery: print("yo. battery's low."); break

@@ -6,12 +6,13 @@
 #import "AppDelegate.h"
 
 #import "LoggingListener.h"
+#import "MuseStatsIos-Swift.h"
 
 @interface AppDelegate ()
 
 @property (weak, nonatomic) IXNMuseManager *manager;
 @property (nonatomic) NSTimer *musePickerTimer;
-@property (nonatomic) LoggingListener *loggingListener;s
+@property (nonatomic) MuseListener *museListener;
 @end
 
 @implementation AppDelegate
@@ -39,8 +40,8 @@
     // to resume connection if we disconnected in applicationDidEnterBakcground::
     // else if (self.muse.getConnectionState == IXNConnectionStateDisconnected)
     //     [self.muse runAsynchronously];
-    if (!self.loggingListener)
-        self.loggingListener = [[LoggingListener alloc] initWithDelegate:self];
+    if (!self.museListener)
+        self.museListener = [[MuseListener alloc] initWithDelegate:self];
     [self.manager addObserver:self
                    forKeyPath:[self.manager connectedMusesKeyPath]
                       options:(NSKeyValueObservingOptionNew |
