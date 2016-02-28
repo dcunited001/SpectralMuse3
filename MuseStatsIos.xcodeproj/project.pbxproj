@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		430708FF1C82F8CC0099AD80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430708FE1C82F8CC0099AD80 /* ViewController.swift */; };
+		430708FF1C82F8CC0099AD80 /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430708FE1C82F8CC0099AD80 /* Controllers.swift */; };
+		430709051C82FDC50099AD80 /* Renderers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430709041C82FDC50099AD80 /* Renderers.swift */; };
+		430709081C82FE050099AD80 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430709061C82FE050099AD80 /* Metal.framework */; };
+		430709091C82FE050099AD80 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430709071C82FE050099AD80 /* MetalKit.framework */; };
+		4307090B1C82FE0C0099AD80 /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4307090A1C82FE0C0099AD80 /* ModelIO.framework */; };
+		4307090D1C82FE520099AD80 /* MuseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4307090C1C82FE520099AD80 /* MuseListener.swift */; };
 		5401E01E1A93DA2600FADC22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401E01D1A93DA2600FADC22 /* main.m */; };
 		5401E0211A93DA2600FADC22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5401E0201A93DA2600FADC22 /* AppDelegate.m */; };
 		5401E0271A93DA2600FADC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5401E0251A93DA2600FADC22 /* Main.storyboard */; };
@@ -31,7 +36,12 @@
 
 /* Begin PBXFileReference section */
 		430708FD1C82F8CC0099AD80 /* MuseStatsIos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MuseStatsIos-Bridging-Header.h"; sourceTree = "<group>"; };
-		430708FE1C82F8CC0099AD80 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		430708FE1C82F8CC0099AD80 /* Controllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
+		430709041C82FDC50099AD80 /* Renderers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderers.swift; sourceTree = "<group>"; };
+		430709061C82FE050099AD80 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		430709071C82FE050099AD80 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		4307090A1C82FE0C0099AD80 /* ModelIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModelIO.framework; path = System/Library/Frameworks/ModelIO.framework; sourceTree = SDKROOT; };
+		4307090C1C82FE520099AD80 /* MuseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseListener.swift; sourceTree = "<group>"; };
 		5401E0181A93DA2600FADC22 /* MuseStatsIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuseStatsIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5401E01C1A93DA2600FADC22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5401E01D1A93DA2600FADC22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4307090B1C82FE0C0099AD80 /* ModelIO.framework in Frameworks */,
+				430709081C82FE050099AD80 /* Metal.framework in Frameworks */,
+				430709091C82FE050099AD80 /* MetalKit.framework in Frameworks */,
 				E91B78621B03B8A300082B2E /* libMuse.a in Frameworks */,
 				E94FB6F01B03B53400B73B4B /* libc++.dylib in Frameworks */,
 			);
@@ -73,6 +86,9 @@
 		5401E00F1A93DA2600FADC22 = {
 			isa = PBXGroup;
 			children = (
+				4307090A1C82FE0C0099AD80 /* ModelIO.framework */,
+				430709061C82FE050099AD80 /* Metal.framework */,
+				430709071C82FE050099AD80 /* MetalKit.framework */,
 				E91B78631B03B8F500082B2E /* Muse.h */,
 				E91B78611B03B8A300082B2E /* libMuse.a */,
 				E94FB6EF1B03B53400B73B4B /* libc++.dylib */,
@@ -102,7 +118,9 @@
 				5401E01B1A93DA2600FADC22 /* Supporting Files */,
 				54EB6BC71AA0EAA3000D8142 /* LoggingListener.h */,
 				54EB6BC81AA0EAA3000D8142 /* LoggingListener.m */,
-				430708FE1C82F8CC0099AD80 /* ViewController.swift */,
+				430708FE1C82F8CC0099AD80 /* Controllers.swift */,
+				4307090C1C82FE520099AD80 /* MuseListener.swift */,
+				430709041C82FDC50099AD80 /* Renderers.swift */,
 				430708FD1C82F8CC0099AD80 /* MuseStatsIos-Bridging-Header.h */,
 			);
 			path = MuseStatsIos;
@@ -241,8 +259,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				54EB6BC91AA0EAA3000D8142 /* LoggingListener.m in Sources */,
+				430709051C82FDC50099AD80 /* Renderers.swift in Sources */,
 				5401E0211A93DA2600FADC22 /* AppDelegate.m in Sources */,
-				430708FF1C82F8CC0099AD80 /* ViewController.swift in Sources */,
+				4307090D1C82FE520099AD80 /* MuseListener.swift in Sources */,
+				430708FF1C82F8CC0099AD80 /* Controllers.swift in Sources */,
 				5401E01E1A93DA2600FADC22 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

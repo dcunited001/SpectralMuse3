@@ -20,3 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 }
+
+class MetalController: UIViewController {
+    
+}
+
+class ColorsController: MetalController {
+    
+}
